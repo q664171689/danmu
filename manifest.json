@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+  "name": "BulletFilter",
+  "version": "1.0.0",
+  "description": "012",
+  "icons": {
+        "16": "image/icon2.png",
+        "48": "image/icon2.png",
+        "128": "image/icon2.png"
+  },
+  "browser_action": {
+    "default_title": "BulletFilter",
+    "default_icon": "image/icon2.png", 
+    "default_popup": "popup.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.bilibili.com/*"],
+      "js": ["/js/content_script.js","/js/jquery-3.6.0.js"],
+      "run_at": "document_start",
+      "css": ["css/012class.css"]
+    }
+  ],
+  "background":{
+    "scripts":["/js/background.js"],
+    "presistent":false
+  },
+
+  "permissions": [
+    "tabs",
+    "*://*/*",
+    "http://*/*",
+    "storage"
+
+  ],
+  "content_security_policy": "script-src 'self' https://lib.sinaapp.com; object-src 'self'"
+}
